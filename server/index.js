@@ -31,6 +31,9 @@ mkdirSync(join(__dirname, "captures"), { recursive: true })
 const sendTelegram = async (imageBase64, cameraName, timestamp) => {
   const token = process.env.TELEGRAM_BOT_TOKEN
   const chatId = process.env.TELEGRAM_CHAT_ID
+  console.log("Token:", token)
+console.log("ChatId:", chatId)
+console.log("URL:", `https://api.telegram.org/bot${token}/sendPhoto`)
   if (!token || !chatId) return console.log("⚠️ Token ou Chat ID manquant dans .env")
 
   try {
